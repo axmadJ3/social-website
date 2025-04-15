@@ -11,13 +11,13 @@
       <span class="logo">Bookmarks</span>
       {% if request.user.is_authenticated %}
         <ul class="menu">
-          <li {% if section == "dashboard" %} class="selected" {% endif %}>
+          <li class="{% if section == 'dashboard' %}selected{% endif %}">
             <a href="{% url "dashboard" %}">My dashboard</a>
           </li>
-          <li {% if section == "images" %} class="selected"{% endif %}>
+          <li class="{% if section == 'images' %}selected{% endif %}">
             <a href="#">Images</a>
           </li>
-          <li {% if section == "people" %} class="selected">
+          <li class="{% if section == 'people' %}selected{% endif %}">
             <a href="#">People</a>
           </li>
         </ul>
