@@ -1,5 +1,5 @@
 from django.urls import path, include
-from django.contrib.auth import views as builtin_views
+from django.contrib.auth import views as builtin_views # noqa: F401
 
 from . import views
 
@@ -40,9 +40,9 @@ urlpatterns = [
     #     builtin_views.PasswordResetCompleteView.as_view(),
     #     name='password_reset_complite'
     # ),
+    path('', include('django.contrib.auth.urls')),
+    
     path('register/', views.register, name='register'),
     path('edit/', views.edit, name='edit'),
-    
-    path('', include('django.contrib.auth.urls')),
     path('', views.dashboard, name='dashboard'),
 ]
