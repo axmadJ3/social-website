@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-qk0neuk!yrx_^py*ui!n09_i9@+1xs5x21&^=qw-*&2_*@17uc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -37,9 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    #local apps
-    'account.apps.AccountConfig',
+    # third party
+    'social_django',
+    'django_extensions',
     
+    # local apps
+    'account.apps.AccountConfig',
     
     'django.contrib.admin',
 ]
@@ -106,6 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
+    'social_core.backends.google.GoogleOAuth2',
 ]
 
 
