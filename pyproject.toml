@@ -9,6 +9,7 @@ dependencies = [
     "django-extensions==3.2.3",
     "pillow>=11.2.1",
     "pyopenssl==24.1.0",
+    "python-decouple==3.8",
     "social-auth-app-django==5.4.0",
     "werkzeug==3.0.2",
 ]
