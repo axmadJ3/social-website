@@ -38,6 +38,7 @@ def image_detail(request, id, slug):
 
 
 @login_required
+@require_POST
 def image_like(request):
     image_id = request.POST.get('id')
     action = request.POST.get('action')
