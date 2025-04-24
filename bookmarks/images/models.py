@@ -20,7 +20,7 @@ class Image(models.Model):
         settings.AUTH_USER_MODEL,
         related_name='images_liked',
         blank=True
-
+    )
     
     
     class Meta:
