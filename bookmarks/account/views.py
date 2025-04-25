@@ -1,7 +1,7 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, get_user_model
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 
 from .forms import (
@@ -11,6 +11,35 @@ from .forms import (
     ProfileEditForm
 )
 from .models import Profile
+
+
+User = get_user_model()
+
+
+@login_required
+def user_list(request):
+    users = User.objects.filter(is_active=True)
+    return render(
+        request,
+        template_name='account/user/list.html',
+        context={
+            'section': 'people',
+            'users': users
+        }
+    )
+    
+    
+@login_required
+def user_detail(request, username):
+    user = get_object_or_404(User, username=username, is_active=True)
+    return render(
+        request,
+        template_name='account/user/detail.html',
+        context={
+            'section': 'people',
+            'user': user
+        }
+    )
 
 
 def register(request):
