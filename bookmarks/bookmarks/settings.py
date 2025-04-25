@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     # local apps
     'account.apps.AccountConfig',
     'images.apps.ImagesConfig',
+    'actions.apps.ActionsConfig',
     
     'django.contrib.admin',
 ]
